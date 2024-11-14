@@ -1,4 +1,4 @@
-Creado con sqlite
+Creado con sqlite, este no soporta el creat Database, este se hace de manera "manual"
 
 
 CREATE TABLE "cargo" (
