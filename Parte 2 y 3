@@ -1,0 +1,36 @@
+/* Actualizar la disponibilidad de un libro (marcarlo como no disponible después de un préstamo) */
+
+
+update libros
+set Disponible = 0
+where  Titulo = 'Cien Años de Soledad'
+
+/* b)	Actualizar la fecha de devolución de un préstamo. */
+update prestamos 
+set Fecha_Devolucion = '2030-05-05'
+where ID_Prestamo = 1
+
+/* c)	Eliminar un libro de la base de datos (se elimina tambien de la tabla prestamos ya que esta FK esta relacionada en esta tabla) */
+Delete from prestamos
+where ID_Libro =1;
+delete from Libros
+where ID_Libro = 1;
+
+/* parte 3 */
+
+/* a)	Seleccionar todos los libros: */
+SELECT * from libros
+
+/* b)	Seleccionar todos los autores */
+select * from autores
+
+/* c)	Seleccionar el libro de Gabriel García Márquez */
+select * libros 
+where autor = 'Gabriel García Márquez'
+
+/* d)	Mostrar los libros devueltos en el mes 8 de la tabla prestamos del año 2024, puedes filtrar por el mes en la columna Fecha_Devolucion. */
+SELECT * FROM prestamos
+WHERE Fecha_Devolucion BETWEEN '2024-08-01' AND '2024-08-31';
+
+
+
