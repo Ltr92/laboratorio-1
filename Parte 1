@@ -1,0 +1,82 @@
+Creado con sqlite
+
+
+CREATE TABLE "cargo" (
+	"id_cargo"	INTEGER,
+	"nombre"	TEXT,
+	"descripcion"	TEXT,
+	"salario"	INTEGER,
+	PRIMARY KEY("id_cargo" AUTOINCREMENT)
+);
+
+
+
+CREATE TABLE "empleados" (
+	"id_empls"	INTEGER,
+	"nombre"	TEXT,
+	"salario"	INTEGER,
+	"cargo"	INTEGER,
+	PRIMARY KEY("id_empls" AUTOINCREMENT)
+);
+
+
+
+INSERT INTO empleados (nombre, salario, cargo) VALUES
+('Carlos López', 50000, 1),
+('Ana Martínez', 55000, 2),
+('Luis Gómez', 45000, 3),
+('María Fernández', 60000, 1),
+('Jorge Ramírez', 52000, 2),
+('Elena Rojas', 48000, 3),
+('Miguel Santos', 53000, 1),
+('Lucía Ortega', 57000, 2),
+('Pablo Vargas', 49000, 3),
+('Sofía Castillo', 61000, 1);
+
+
+INSERT INTO cargo (nombre, descripcion, salario) VALUES
+('Gerente', 'Responsable de la gestión general de la empresa', 75000),
+('Desarrollador', 'Encargado del desarrollo de software y aplicaciones', 55000),
+('Analista', 'Analiza datos para la toma de decisiones', 50000),
+('Contador', 'Manejo de cuentas y finanzas de la empresa', 52000),
+('Soporte Técnico', 'Ofrece asistencia técnica a clientes y empleados', 45000),
+('Diseñador Gráfico', 'Crea material visual y diseño de interfaces', 47000),
+('Administrador', 'Administra recursos y coordina actividades de oficina', 53000),
+('Marketing', 'Promociona productos y servicios de la empresa', 56000),
+('Recursos Humanos', 'Gestión de personal y procesos de contratación', 59000),
+('Ventas', 'Desarrolla estrategias de ventas y cierra negocios', 50000);
+
+/* 
+Seleccionar todos los cargos 
+*/
+SELECT * FROM cargo;
+
+/* Seleccionar empleados que ganan más de 60,000 */
+SELECT * FROM empleados
+WHERE salario > 60000;
+
+/* 
+Actualizar el salario de un empleado (por ejemplo, de 'Ana Gómez'):
+Se quiere aumentar el salario de 'Ana Gómez' a 6,500,000
+*/
+UPDATE empleados 
+SET salario = 6500000
+WHERE nombre = 'Ana Gómez';
+
+/* Eliminar un empleado (por ejemplo, 'Luis Castro') */
+DELETE FROM empleados 
+WHERE nombre = 'Luis Castro';
+
+/* Seleccionar empleados con el cargo 2 */
+SELECT * FROM empleados
+WHERE cargo = 2;
+
+/*
+Insertar un nuevo empleado con un cargo existente: se quiere agregar a 'Marta López' con el cargo de 'Asistente' y un salario de 3,000,000
+*/
+INSERT INTO empleados (nombre, salario, cargo) 
+VALUES ('Marta López', 3000000, 2);
+
+
+
+
